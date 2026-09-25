@@ -274,6 +274,7 @@ Measured on a phone running Termux. A synthetic workspace of 101622 lines across
 
 A local code intelligence dashboard is planned, but is not implemented or included in the current release.
 
+![Mockup of the planned dashboard](assets/dashboard.svg)
 
 ## FAQ
 

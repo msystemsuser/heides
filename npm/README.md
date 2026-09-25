@@ -16,11 +16,13 @@ On install, the matching binary is downloaded from GitHub Releases into the pack
 | OS | Arch | Asset |
 |----|------|-------|
 | Linux (glibc) | x64 | `heides-x86_64-unknown-linux-gnu` |
+| Linux (glibc) | arm64 | `heides-aarch64-unknown-linux-gnu` |
+| Android / Termux | arm64 | `heides-aarch64-linux-android` |
 | macOS | arm64 | `heides-aarch64-apple-darwin` |
 | macOS | x64 | `heides-x86_64-apple-darwin` |
 | Windows | x64 | `heides-x86_64-pc-windows-msvc.exe` |
 
-Not listed, e.g. Linux arm64, Android, or musl/Alpine: the installer stops with a clear error. Install from source instead (`cargo install heides`) or pick a build from the [releases page](https://github.com/AbduljabbarBXR/heides/releases).
+Other platforms, including musl/Alpine, are not supported by the installer. Install from source instead (`cargo install heides`) or pick a build from the [releases page](https://github.com/AbduljabbarBXR/heides/releases).
 
 ## Usage
 
