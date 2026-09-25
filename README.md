@@ -270,19 +270,19 @@ Every change lands behind the same gate, lint, build, the unit suite, the hostil
 
 Measured on a phone running Termux. A synthetic workspace of 101622 lines across 2400 files scans in 1.6 seconds and indexes in 0.95 megabytes, about 9.6 bytes per line of code. Peak memory during the fresh scan is 16 megabytes. A query over the full graph answers in 39 milliseconds. Changing a single file rescans in 82 milliseconds and touches exactly one file. These are the numbers from the release binary on an Android device, so desktop and server builds are at least as fast.
 
-## Dashboard
+## Dashboard Preview (Roadmap)
 
-HEIDES ships a local code intelligence dashboard. Every `heides` invocation starts it and prints the URL. Open it in a browser. Nothing leaves the machine.
+The dashboard shown here is a roadmap mockup, not a shipped feature. HEIDES does not start a dashboard server, print a dashboard URL, or provide a `heides dashboard` command. The illustration and descriptions below show a possible future local code intelligence interface; none of its UI or endpoints are currently available.
 
-![HEIDES dashboard: code map of files, symbols, calls and triggers](assets/dashboard.svg)
+![Roadmap mockup of a possible HEIDES dashboard: code map of files, symbols, calls and triggers](assets/dashboard.svg)
 
-The **code map** draws one card per file with its symbols, and wires the calls between them. Calls are solid blue edges, imports are dashed grey, cycles are red. Selecting a card dims the rest and traces its callers and calls with an animated path. `Ctrl+K` jumps to any symbol or file.
+The proposed **code map** would draw one card per file with its symbols, and wire the calls between them. Calls are solid blue edges, imports are dashed grey, cycles are red. Selecting a card would dim the rest and trace its callers and calls with an animated path. `Ctrl+K` would jump to any symbol or file.
 
-**Triggers** show where execution starts and what reacts: entrypoints (functions nobody calls), listeners and hooks (event registrations and module level runs), call cycles, and load bearing symbols ranked by edge count. Every row has a locate button back to the map.
+Proposed **triggers** would show where execution starts and what reacts: entrypoints (functions nobody calls), listeners and hooks (event registrations and module level runs), call cycles, and load bearing symbols ranked by edge count. Every row would have a locate button back to the map.
 
-**Scaffold** previews plans before anything is written. The Plan pane holds all files with collision and orphan warnings plus one generated `heides scaffold` command. The File pane designs a single file and its connection contract. Both render the same dashed ghost cards: `new` symbols are created, `link` symbols already exist and wire into the graph.
+The proposed **Scaffold** view would preview plans before anything is written. The Plan pane would hold all files with collision and orphan warnings plus one generated `heides scaffold` command. The File pane would design a single file and its connection contract. Both would render dashed ghost cards: `new` symbols are created, `link` symbols already exist and wire into the graph.
 
-Static preview of a file card, the same component used in the app:
+Illustrative file card:
 
 ```text
 +-------------------------------+
@@ -293,7 +293,7 @@ Static preview of a file card, the same component used in the app:
 +-------------------------------+
 ```
 
-Live data comes from the same spine index over local endpoints: `/api/describe`, `/api/triggers`, `/api/neighbors?name=X`, `/api/search?q=...`, `/api/health`. The page watches index age and reloads itself on change. `heides dashboard [start|stop|status]` controls the server. Default port 8900.
+The roadmap includes serving live data from the spine index over local endpoints such as `/api/describe`, `/api/triggers`, `/api/neighbors?name=X`, `/api/search?q=...`, and `/api/health`, with a page that watches index age and reloads on change. A future `heides dashboard [start|stop|status]` command and default port 8900 are proposed, not implemented.
 
 
 ## FAQ
