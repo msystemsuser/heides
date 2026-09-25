@@ -270,30 +270,9 @@ Every change lands behind the same gate, lint, build, the unit suite, the hostil
 
 Measured on a phone running Termux. A synthetic workspace of 101622 lines across 2400 files scans in 1.6 seconds and indexes in 0.95 megabytes, about 9.6 bytes per line of code. Peak memory during the fresh scan is 16 megabytes. A query over the full graph answers in 39 milliseconds. Changing a single file rescans in 82 milliseconds and touches exactly one file. These are the numbers from the release binary on an Android device, so desktop and server builds are at least as fast.
 
-## Dashboard
+## Dashboard (planned)
 
-HEIDES ships a local code intelligence dashboard. Every `heides` invocation starts it and prints the URL. Open it in a browser. Nothing leaves the machine.
-
-![HEIDES dashboard: code map of files, symbols, calls and triggers](assets/dashboard.svg)
-
-The **code map** draws one card per file with its symbols, and wires the calls between them. Calls are solid blue edges, imports are dashed grey, cycles are red. Selecting a card dims the rest and traces its callers and calls with an animated path. `Ctrl+K` jumps to any symbol or file.
-
-**Triggers** show where execution starts and what reacts: entrypoints (functions nobody calls), listeners and hooks (event registrations and module level runs), call cycles, and load bearing symbols ranked by edge count. Every row has a locate button back to the map.
-
-**Scaffold** previews plans before anything is written. The Plan pane holds all files with collision and orphan warnings plus one generated `heides scaffold` command. The File pane designs a single file and its connection contract. Both render the same dashed ghost cards: `new` symbols are created, `link` symbols already exist and wire into the graph.
-
-Static preview of a file card, the same component used in the app:
-
-```text
-+-------------------------------+
-| src/auth/login.ts   typescript|
-| [fn]    loginUser        :12  |
-| [iface] LoginForm        :4   |
-| 2 symbols · 3 out · 1 in      |
-+-------------------------------+
-```
-
-Live data comes from the same spine index over local endpoints: `/api/describe`, `/api/triggers`, `/api/neighbors?name=X`, `/api/search?q=...`, `/api/health`. The page watches index age and reloads itself on change. `heides dashboard [start|stop|status]` controls the server. Default port 8900.
+A local code intelligence dashboard is planned, but is not implemented or included in the current release.
 
 
 ## FAQ

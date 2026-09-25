@@ -34,7 +34,7 @@ heides mcp   # MCP server over stdio for agents
 
 ## Versions
 
-npm package version tracks the HEIDES release version. `heides@0.13.1` installs HEIDES 0.13.1.
+The npm package version and HEIDES binary version are managed separately. The installer downloads HEIDES 0.14.4 by default; set `HEIDES_BIN_VERSION` during installation to select another release.
 
 ## Uninstall
 
